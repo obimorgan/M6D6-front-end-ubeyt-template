@@ -14,7 +14,9 @@ const Home = () => {
         const result = await response.json()
         setData(result)
         setLoading(false)
-      } else { throw new Error("Fetching Failed!") }
+      } else {
+        throw new Error("Fetching Failed!")
+      }
     } catch (error) {
       console.log(error)
     }
@@ -26,6 +28,9 @@ const Home = () => {
     <Container fluid="sm" >
       <h1 className="blog-main-title">Welcome to the Strive Blog!</h1>
       <BlogList posts={data} />
+      {
+        loading && <h1>Loading...</h1>
+      }
     </Container>
   );
 }
